@@ -113,7 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.backspaceBT) {
             removeLastCharacter();
         } else if (id == R.id.clearBT) {
-            makeClear();
+            makeInputClear();
+            makeResultClear();
         }
     }
 
@@ -152,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (aChar == '*') {
             result = firstNum * secondNum;
         }
+        makeInputClear();
         resultTV.setText(String.valueOf(result));
     }
 
@@ -162,9 +164,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void makeClear() {
+    private void makeInputClear() {
         input = "";
         inputTV.setText(input);
+    }
+
+    private void makeResultClear() {
+        result = 0.0;
+        resultTV.setText("");
     }
 
     private void setInput(String s) {
