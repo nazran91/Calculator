@@ -18,6 +18,11 @@ public class InfoDialogFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+
+        View view = getLayoutInflater().inflate(R.layout.info_dialog_fragment,
+                container, false);
+
+
+        return view;
     }
 }

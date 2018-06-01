@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             dotBT, ansBT, clearBT, equalBT, backspaceBT;
     private String input = "";
     private Double result = 0.0;
+    private ImageView info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initialization() {
+        info = findViewById(R.id.info);
         inputTV = findViewById(R.id.inputTV);
         resultTV = findViewById(R.id.resultTV);
         oneBT = findViewById(R.id.oneBT);
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clearBT = findViewById(R.id.clearBT);
         backspaceBT = findViewById(R.id.backspaceBT);
 
+        info.setOnClickListener(this);
         oneBT.setOnClickListener(this);
         twoBT.setOnClickListener(this);
         threeBT.setOnClickListener(this);
@@ -115,6 +119,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.clearBT) {
             makeInputClear();
             makeResultClear();
+        } else if (id == R.id.info){
+            InfoDialogFragment infoDialogFragment = new InfoDialogFragment();
+            infoDialogFragment.show(getSupportFragmentManager(), "Dialog");
         }
     }
 
